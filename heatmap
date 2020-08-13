@@ -1,1 +1,34 @@
-print('Hello world')
+#Heatmap
+import numpy as np
+import matplotlib.pyplot as plt 
+import pandas as pd
+from scipy.stats import zscore
+import seaborn as sns; sns.set(color_codes=True)
+
+figure(num=None, figsize=(12, 9), dpi=80, facecolor='w', edgecolor='k')
+
+plt.rc('font', size=210)          # controls default text sizes
+plt.rc('axes', titlesize=10)     # fontsize of the axes title
+plt.rc('axes', labelsize=10)    # fontsize of the x and y labels
+plt.rc('xtick', labelsize=8)    # fontsize of the tick labels
+plt.rc('ytick', labelsize=8)    # fontsize of the tick labels
+plt.rc('legend', fontsize=10)    # legend fontsize
+plt.rc('figure', titlesize=10)  # fontsize of the figure title
+
+
+
+dataset_original = pd.read_csv('analysis1.csv')
+#dataset_transposed = dataset_original.transpose()
+
+# 把第一列去掉
+#X = dataset_transposed.iloc[1:,:].values
+#y = dataset_original.columns[1:].values
+
+"""
+# 计算z_score on per gene basis
+a = np.array(X, dtype = np.float64) # Convert into float
+X_ZScore = zscore(a)
+"""
+# Plot Cluster Map
+data = dataset_original.pivot_table(index = 'GN')
+g = sns.clustermap(data, z_score = 0) # Z_score for rows, standardized one gene across all people
