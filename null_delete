@@ -1,1 +1,9 @@
-print('Hello world')
+#delete null values
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+df= pd.read_csv('test.csv', dtype=str)
+df = df[pd.notnull(df['batch1'])]
+df = df[pd.notnull(df['batch2'])]
+df = df[pd.notnull(df['batch3'])]
+df.to_csv('test1.csv')
