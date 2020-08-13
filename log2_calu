@@ -1,1 +1,18 @@
-print('Hello world')
+#Caculate log2 values
+import numpy as np
+import matplotlib.pyplot as plt 
+import pandas as pd
+import seaborn as sns
+import os
+
+
+dataset_original = pd.read_csv('analysis1.csv')
+# remove row 1 and column 1 which is not a number
+#dataset_original.head()
+x = dataset_original.iloc[:, 1:].values
+
+# caculate log
+log = np.log2(x)
+
+# 导出log图表 注意改名称
+pd.DataFrame(log).to_csv('analysis1_log2.csv')
