@@ -1,1 +1,54 @@
+#PCA
+#import matplotlib
+import numpy as np
+import matplotlib.pyplot as plt 
+import pandas as pd
+from matplotlib.colors import ListedColormap
+%matplotlib inline
+from matplotlib.pyplot import figure
 
+figure(num=None, figsize=(12, 9), dpi=80, facecolor='w', edgecolor='k')
+plt.rc('font', size=10)          # controls default text sizes
+plt.rc('axes', titlesize=20)     # fontsize of the axes title
+plt.rc('axes', labelsize=20)    # fontsize of the x and y labels
+plt.rc('xtick', labelsize=20)    # fontsize of the tick labels
+plt.rc('ytick', labelsize=20)    # fontsize of the tick labels
+plt.rc('legend', fontsize=8)    # legend fontsize
+plt.rc('figure', titlesize=20)  # fontsize of the figure title
+
+
+plt.xlabel(xlabel = (f'PCA1 ({pca1}%)'))
+plt.ylabel(ylabel = (f'PCA2 ({pca2}%)'))
+dataset_original = pd.read_csv("analysis1.csv")
+dataset_transposed = dataset_original.transpose()
+
+# 把第一列去掉
+X = dataset_transposed.iloc[1:,:].values
+y = dataset_original.columns[1:].values
+
+# Feature Scaling
+from sklearn.preprocessing import StandardScaler
+sc_X = StandardScaler()
+X = sc_X.fit_transform(X)
+
+# Applying PCA
+from sklearn.decomposition import PCA
+pca = PCA(n_components = 2)
+X = pca.fit_transform(X)
+explained_variance = pca.explained_variance_ratio_
+pca1 = ('{:.2f}'.format(pca.explained_variance_ratio_[0] * 100))
+pca2 = ('{:.2f}'.format(pca.explained_variance_ratio_[1] * 100))
+
+
+
+
+for i, j in enumerate(np.unique(y)):
+    plt.scatter(X[y == j, 0], X[y == j, 1], label = j)
+    plt.annotate(j,(X[y == j, 0], X[y == j, 1]))
+    
+
+plt.xlabel(xlabel = (f'PCA1 ({pca1}%)'))
+plt.ylabel(ylabel = (f'PCA2 ({pca2}%)'))
+#plt.legend()
+plt.title('PCA Analysis')
+plt.show()
