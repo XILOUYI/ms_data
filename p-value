@@ -1,1 +1,10 @@
-print('Hello world!')
+#p-value caculate in Rstudio
+getwd()
+setwd("C:/Users/xsun/Desktop")
+getwd()
+library(matrixTests)
+df <- read.csv('mydata01_del_null_log2_for_p.csv')
+library(matrixTests)
+res <- row_t_equalvar(df[,1:21], df[,21:42])
+sum(res$pvalue <= 0.05)
+write.csv(res, 'mydata_p_value.csv', row.names = FALSE)
