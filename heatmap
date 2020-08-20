@@ -5,7 +5,7 @@ import pandas as pd
 from scipy.stats import zscore
 import seaborn as sns; sns.set(color_codes=True)
 
-figure(num=None, figsize=(12, 9), dpi=80, facecolor='w', edgecolor='k')
+plt.figure(num=None, figsize=(12, 9), dpi=80, facecolor='w', edgecolor='k')
 
 plt.rc('font', size=210)          # controls default text sizes
 plt.rc('axes', titlesize=10)     # fontsize of the axes title
