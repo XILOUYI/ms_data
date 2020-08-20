@@ -1,0 +1,25 @@
+# This script is accompanying the YouTube Tutorial: https://youtu.be/ZR6bf8_s-hw
+import numpy as np
+from statsmodels.stats.weightstats import ttest_ind
+ 
+db = np.random.normal(2.3, 0.9, 1000)
+da = np.random.normal(1.8, 0.7, 1000)
+ 
+print(ttest_ind(db, da))
+ 
+# Now the same test can of course be carried out using scipy... lets have a QUICK look ath the documentation
+from scipy.stats import ttest_ind
+ttest_sp = ttest_ind(db, da)
+ 
+print(ttest_sp)
+ 
+# We don't get the degrees of freedom and we don't get the confidence intervall!!! DF can be calulated
+n = len(drinks_before) + len(drinks_after)
+df = n-2
+ 
+# Paired samples t-test
+from scipy.stats import ttest_rel
+ 
+ttest_pair = ttest_rel(drinks_before, drinks_after)
+ 
+print(ttest_pair)
