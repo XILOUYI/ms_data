@@ -2,7 +2,6 @@
 getwd()
 setwd("C:/Users/xsun/Desktop")
 getwd()
-library(matrixTests)
 df <- read.csv('mydata01_del_null_log2_for_p.csv')
 library(matrixTests)
 res <- row_t_equalvar(df[,1:21], df[,21:42])
