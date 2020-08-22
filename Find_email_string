@@ -1,0 +1,5 @@
+import re
+text = 'random string, xilouyi@gmail.com, Xil09uli@gmail.com, xilouli@gmail.com'
+email = re.compile('[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]')
+result= email.findall(text)
+print(result)
