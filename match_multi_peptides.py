@@ -1,0 +1,80 @@
+# Python3 code to demonstrate 
+# Matching elements count 
+# using list comprehension and index() + len() 
+  
+import pandas as pd
+df1 = pd.read_csv('huan_b7_f24.1.csv')
+df2 = pd.read_csv('huan_b1_f24.1.csv')
+df3 = pd.read_csv('Zhen_Batch2_Abeta_toXJ.csv')
+df4 = pd.read_csv('Zhen_batch4_Abeta_toXJ.csv')
+df16 = pd.read_csv('212_16.1.csv')
+df17 = pd.read_csv('212_17.1.csv')
+df18 = pd.read_csv('212_18.1.csv')
+df19 = pd.read_csv('212_19.1.csv')
+df20 = pd.read_csv('212_20.1.csv')
+df21 = pd.read_csv('212_21.1.csv')
+df22 = pd.read_csv('212_22.1.csv')
+df23 = pd.read_csv('212_23.1.csv')
+df24 = pd.read_csv('212_24.1.csv')
+df25 = pd.read_csv('212_25.1.csv')
+df26 = pd.read_csv('212_26.1.csv')
+df27 = pd.read_csv('212_27.1.csv')
+df28 = pd.read_csv('212_28.1.csv')
+df29 = pd.read_csv('212_29.1.csv')
+df30 = pd.read_csv('212_30.1.csv')
+df31 = pd.read_csv('212_31.1.csv')
+df32 = pd.read_csv('212_32.1.csv')
+df33 = pd.read_csv('212_33.1.csv')
+df34 = pd.read_csv('212_34.1.csv')
+df35 = pd.read_csv('212_35.1.csv')
+df36 = pd.read_csv('212_36.1.csv')
+df37 = pd.read_csv('212_37.1.csv')
+df38 = pd.read_csv('212_38.1.csv')
+df39 = pd.read_csv('212_39.1.csv')
+df40 = pd.read_csv('212_40.1.csv')
+
+#df3 = pd.read_csv('data3.csv')
+list1 = list(df1.PeptideSequence)
+list2 = list(df2.PeptideSequence)
+list3 = list(df3.PeptideSequence)
+list4 = list(df4.PeptideSequence)
+
+list16 = list(df16.PeptideSequence)
+list17 = list(df17.PeptideSequence)
+list18 = list(df18.PeptideSequence)
+list19= list(df19.PeptideSequence)
+list20 = list(df20.PeptideSequence)
+list21= list(df21.PeptideSequence)
+list22 = list(df24.PeptideSequence)
+list23 = list(df25.PeptideSequence)
+list24 = list(df26.PeptideSequence)
+list25= list(df27.PeptideSequence)
+list26 = list(df22.PeptideSequence)
+list27= list(df23.PeptideSequence)
+list28 = list(df28.PeptideSequence)
+list29 = list(df29.PeptideSequence)
+list30 = list(df30.PeptideSequence)
+list31= list(df31.PeptideSequence)
+list32 = list(df32.PeptideSequence)
+list33= list(df33.PeptideSequence)
+list34= list(df34.PeptideSequence)
+list35 = list(df35.PeptideSequence)
+list36 = list(df36.PeptideSequence)
+list37 = list(df37.PeptideSequence)
+list38= list(df38.PeptideSequence)
+list39 = list(df39.PeptideSequence)
+list40= list(df40.PeptideSequence)
+
+match_number = []
+for list_x in [list16, list17, list18, list19, list20, list21, list22, list23, list24, list25, list26, list27,list18, list29,\
+               list30, list31, list32, list33, list34, list35, list36, list37, list38, list39, list40]:
+    p = set(list_x).intersection(set(list4))
+    match_number.append(len(p))
+
+print(match_number)
+
+import csv
+
+import pandas
+df = pandas.DataFrame(data={"col1": match_number})
+df.to_csv("my_match_result.csv", sep=',',index=False)
