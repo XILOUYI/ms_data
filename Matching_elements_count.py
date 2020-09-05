@@ -15,6 +15,6 @@ p = set(list1).intersection(set(list2))
 b = set(list1).union(set(list2))
 # Python code to get the difference between two sets， using difference() between set A and set B 
 s = set(list1).difference(set(list2))
-x.union(y)
+
 print(p)
 print(len(p))
