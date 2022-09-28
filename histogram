@@ -1,0 +1,13 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+
+data = pd.read_csv('c.csv', header = None ,quoting=2)
+
+data.hist(bins=50)
+plt.xlim()
+plt.ylim()
+plt.title("Data")
+plt.xlabel("SA-BV421")
+plt.ylabel("Frequency")
+plt.show()
+data
